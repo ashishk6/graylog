@@ -66,7 +66,7 @@ For sending Syslog to the graylog:
 Enter the log configuration in /etc/rsyslog.conf
 sudo vim /etc/rsyslog.conf
 *.* @@<HOST IP>:1514;RSYSLOG_SyslogProtocol23Format
-  IP
+  
 Restart the rsyslog service:
 sudo service rsyslog restart
 
