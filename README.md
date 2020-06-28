@@ -53,20 +53,20 @@ services:
       - 12201:12201/udp
 ```
 
-### on runing this docker compose file, it will create a docker container for MongDB,  elasticsearch and graylog.
+### on running this docker compose file, it will create a docker container for MongDB,  elasticsearch and graylog.
 ```
 The graylog server gui will be running on hostIP:9000
 You can push the GELF UDP and TCP log via port:12201 and Syslog via 1514
 
 For sending plain text to test the connection:
 Create an input stream of type Raw/Plaintext with port 12201 in TCP and UPD and use the below query to ping a message
-echo "Hello Graylog, let's be friends." | nc -w 1 -u 13.90.45.127 12201
+echo "Hello Graylog, let's be friends." | nc -w 1 -u <HOST IP> 12201
 
 For sending Syslog to the graylog:
 Enter the log configuration in /etc/rsyslog.conf
 sudo vim /etc/rsyslog.conf
-*.* @@13.90.45.127:1514;RSYSLOG_SyslogProtocol23Format
-
+*.* @@<HOST IP>:1514;RSYSLOG_SyslogProtocol23Format
+  IP
 Restart the rsyslog service:
 sudo service rsyslog restart
 
